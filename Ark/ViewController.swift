@@ -8,6 +8,10 @@
 import UIKit
 import RxSwift
 
+struct ViewModel {
+    let title : String
+}
+
 class ViewController: UIViewController {
     private var vm : BehaviorSubject<ViewModel>? = .init(value: .init(title: "created"))
     lazy var disposeBag : DisposeBag = DisposeBag()
