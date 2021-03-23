@@ -7,12 +7,33 @@
 
 import UIKit
 import RxSwift
+import ReactorKit
+
+class ViewReactor : Reactor {
+    let initialState: State = State(text: "created by Reactor")
+    
+    enum Action {
+        case changed
+        case tapped
+    }
+    
+    struct State {
+        let text : String
+    }
+    
+}
 
 struct ViewModel {
     let title : String
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, View {
+    func bind(reactor: Reactor) {
+        
+    }
+    
+    typealias Reactor = ViewReactor
+    
     private var vm : BehaviorSubject<ViewModel>? = .init(value: .init(title: "created"))
     lazy var disposeBag : DisposeBag = DisposeBag()
     
